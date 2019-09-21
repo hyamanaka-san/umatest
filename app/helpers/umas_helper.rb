@@ -1,0 +1,2 @@
+module UmasHelper
+end

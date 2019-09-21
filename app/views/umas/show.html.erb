@@ -1,0 +1,11 @@
+
+<ul>
+  <% @umas.each do |uma| %>
+  <%# uma.horse_id.to_i %> 
+  <li><%#= uma.name,"https://db.netkeiba.com/horse/"+uma.umaid ,:target=>["_blank"] ) %>
+  <%= link_to uma.horse_id ,'https://db.netkeiba.com/horse/'"#{uma.horse_id}",:target=>["_blank"] %> 
+  <%= uma.horse_name %>  父 <%= uma.umaline.ml %><%= uma.umaline.ml2 %></li>
+  <% else %>
+  puts "なす"
+  <% end %>
+</ul>

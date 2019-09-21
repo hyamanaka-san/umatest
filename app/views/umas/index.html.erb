@@ -1,0 +1,75 @@
+<%# http://mochikichi.hatenablog.com/entry/2017/03/26/113022 %>
+
+<h1>メッセージ一覧</h1>
+
+<p>うまsearch</p>
+
+  <%= form_tag(umas_path, :method => "get") do %>
+  <%= text_field_tag :search %>
+    
+<%#= 11,12,16行目削除、14行目有効で1頭の馬であればマッチする%>
+    <%= form_tag(umas_path, :method => "get") do %>
+    <%= text_field_tag :sear %>
+    
+    <%= form_tag(umas_path, :method => "get") do %>
+    <%= text_field_tag :money %>
+  
+  
+  <%#= submit_tag 'Search', :horse_name => nil %>
+    <%= submit_tag 'Search', :horse_name => nil,:gwin => nil,:money => nil %>
+
+  <% end %>
+<% end %>
+
+
+
+<% @umas3 = @umas & @umas2 & @money %>
+
+<% if @umas3.present? %>
+
+<%= @umas3.count %>頭ヒット
+
+<ul>
+  <% @umas3.each do |uma| %>
+  <%#= uma.name,"https://db.netkeiba.com/horse/"+uma.umaid ,:target=>["_blank"] ) %>
+  <li><%= link_to uma.horse_id ,'https://db.netkeiba.com/horse/'"#{uma.horse_id}",:target=>["_blank"] %> 
+  <%= uma.horse_name %>  父父 <%= uma.umaline.ml %><%= uma.umaline.ml2 %> <%= uma.money %> </li>
+  <% end %>
+</ul>
+<% end %>
+
+
+
+
+<% if false %>
+<% if @umas.present? && @umas2.blank? %>　<%# 検索対象が存在するか？チェック。この分岐がないと全部表示される。。  %>
+<%#= @umas.count %>頭ヒット
+
+<ul>
+  <% @umas.each do |uma| %>
+  <%#= uma.name,"https://db.netkeiba.com/horse/"+uma.umaid ,:target=>["_blank"] ) %>
+  <li><%= link_to uma.horse_id ,'https://db.netkeiba.com/horse/'"#{uma.horse_id}",:target=>["_blank"] %> 
+  <%= uma.horse_name %>  父 <%= uma.umaline.ml %><%= uma.umaline.ml2 %></li>
+    <%# if uma.gwin == 1 %>
+     <%#  i += 1 %>
+    <%# end %>
+  <% end %>
+</ul>
+<% end %>
+
+
+<% if @umas2.present?  %>
+<%=  p 'sss' %> 
+<%#= @uma2.count %>頭ヒット
+  <ul>
+    <% @umas2.each do |uma2| %>
+    <li><%= link_to uma2.horse_id ,'https://db.netkeiba.com/horse/'"#{uma2.horse_id}",:target=>["_blank"] %> 
+    <%= uma2.horse_name %>   <%= uma2.umaline.ml %><%#= uma2.umaline.ml2 %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% end %>
+
+<% end %>

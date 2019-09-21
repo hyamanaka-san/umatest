@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uma_id: MyString
+  ml: MyString
+  ml2: MyString
+  ml3_1: MyString
+
+two:
+  uma_id: MyString
+  ml: MyString
+  ml2: MyString
+  ml3_1: MyString
